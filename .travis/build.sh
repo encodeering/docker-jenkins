@@ -2,8 +2,10 @@
 
 set -ev
 
+SEMANTIC="${VERSION:0:3}"
+
 TAG="$REPOSITORY/$PROJECT-$ARCH"
-TAGSPECIFIER="$VERSION"
+TAGSPECIFIER="$SEMANTIC"
 
 docker pull   "$REPOSITORY/openjdk-$ARCH:8-jdk"
 docker tag -f "$REPOSITORY/openjdk-$ARCH:8-jdk" "java:8-jdk"
