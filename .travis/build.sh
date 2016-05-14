@@ -14,3 +14,5 @@ docker build -t "$TAG:$TAGSPECIFIER" \
              --build-arg JENKINS_VERSION="$VERSION" \
              --build-arg JENKINS_SHA="$SHA"         \
              "$PROJECT"
+
+docker run --rm "$TAG:$TAGSPECIFIER" java -jar /usr/share/jenkins/jenkins.war --version
