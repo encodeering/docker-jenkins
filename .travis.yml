@@ -1,0 +1,33 @@
+language: bash
+
+sudo: required
+
+services:
+- docker
+
+env:
+  global:
+    - secure: "Y6OAcmmCXZu73jie9vvr3fZfl1eDfWrlb1U15v2x+JumiYdnZdHkZkWnYaBiYBkoKROf4TzMjhAlbJChB1UgfSil3jtSHTn4Q4QKmpI7+CMadani05LwWoN38HcjRWkFp6VWMaRJtbsr0Bo2xn3hucIKRw1GbNbyJ61mk8GVH5LEn1kkK0F1EEBiKk6Wbvwh8nfd1eUavi8KKjgDaUQIB/VuJvj12aoUBeU/38IAwJD8eBlNb0BXvByZUjxuyazQuXEOii9HRbp4QzinTf/Sfg/hPgSihD02kosIyFk5baYdldNmviR/xwx36g8SwOb4yU3Cz/6qLQl5w2y0yFDIONxZNQ6XB9d++0Ra8Kw9I7LeLgKKs/sI4Si2cWfA0okoI5XQHTRQO9FvDqZc5FDuQxqSDMa/9BZCLC33vDURXanJR9fMIXHyilW/6z1RTUDSvw25RtR0LpfJdCangDPwEMCAZNjRhAnRhxUC7TP2qNCb70SbSsWS4rgmruAYW7KCGJyewZZ8VB0PAZQabTaNV93nlLfr+evy5IXBn0ep2qQf/NPqsK/hwTA+F/cafJkPtdtHmffu1Kjff0ICtlk4dsSmzkPs7I0bL8XcekE8Gr9ZmRl1GbRnb9gG/XT7PMjtW4Mc4lSr6voTOPiPBCT73sshbyRyR42KyehFF1ajrBI="
+    - secure: "qjsmNVW3bPZdUs5wMNhDbXsVvJCrWwNY/1Um2ue7Q2eKStMG9YwMOln+nWUG6VIiu/FwHMWkHn6zvHDkJTsZndXr8Hk8Y5ALXH7I26UOhFvriHbHbnKAIeW0jKqLOcyZBUgFrx4FAHBpv6s9jeO++pCT0OUsVZFBz7b/LmFR9y9TDxQiXKobUWf6lRMTdrvK29r7HgNRyoms2drU0yGFAlzcEjm9p89he6Am28G/j2OfGA1tnt76XsKMAwHcD2EP6DPjYoHo/dK6/dlVeHTBgGjwhEnx5wK6xakvy2D99iFDO5MkREfBfK2VjVIidq62fTcOmMUWSiWpewmbSpCSGcAh0fBLDuS6VvK/4BvrB4kXTQ6HIbP+eBcpt3mVOhhbkHxDW2n3tQ95LR/3Av1AUwuag7C7zBauUpprQMvpY95tU7ieQWshMRXkHG6ue8I5kFh2ny33QwGjMJbHVVR46TnHy5Q7Snkz69hKGxpiJVM2WOxrXOdJYNfM9ihf6ui/t1Hz262nsvBg8E4toTBxo4l5fn1Z3MCUys/P8/ao6149gBavS5mFbU9wWU9B5OUClGbdQUAsJkQYxbpnkEeVnqBDythDz6TvfYIrBLySVlJ6zQfigmTnqiGvLmmEXnSaniaIXelNC8i1LApe1nKpFCk7ppKwz6ozDfqR5GBurIc="
+    - secure: "VucyJCVl2hzVRBr0TDnrbslhTHOdgGYJKCuTBfyaSXKYgrW7t/Y54+DHu/sAh6JsoNxd4PIpbKvt4puOrnDMkg+RrVu2QUxktc/wJZULzSIZZSrTN6wQyoHLynIfPhWU7PNsFMNL+eJ5CR7Qz+KLFCNAEbyNp3D4amMwNOUu+zA2X/vpmElOE5je8v5BOwflqnJUHFVG8DzFadaQIxjjdn+VYRIHo37Dhs0G+DgwN0fufP3cf6d0ZSGKN5TAIUxJJ2ev5mfxyMYhlRNnO9lzLZ1RsE9HPzTtp7dm4iwW5gPRgBtHkYhpXdToD9NBUXW76eEPyfwB3Ug/EQmAkdKgOqKfoJehFMZlC1Duz1IU3ICHslLObPHT7U/PPMu6Tfx/lOjY0N1xUtdv4v+O+6VuMFojMyYsEqoSuA52/HP7ZnUOmo9LWuA7gUoOKOnQWUO+NYOh8F9ghBWxpZOAWxrNwzO6MVV6Y6NLKdLeG+UnJIfo/H/+s9UkcXqPhIINaitKD465rJ5t9h4j+GXxDQdXnz+EuYtmB1BYhRYw9qX51eJbdw/TE02OTwQot4th3KqdXyxP9c2837Rlkkc4gjWHRwTdAN68VsXg36E4gQJ1hITPBCvwbf1n8FGDlsSHW0SRADF52lFJeBCmbohgEveSL1sfx2nS9Ru79yD4+2Thi+U="
+    - PROJECT="jenkins"
+    - REPOSITORY="encodeering"
+  matrix:
+    - ARCH=amd64 VERSION=1.658 SHA=a1e0c298db70195b8ac3202a3758463a1148bbb2
+    - ARCH=amd64 VERSION=2.3   SHA=d3097c9c81c7d5074d71a5059d85cf8977c1568e
+
+before_script:
+- sudo -E bash .travis/prepare.sh
+- git clone --depth 1 https://github.com/jenkinsci/docker.git "$PROJECT"
+
+script:
+- sudo -E bash .travis/build.sh
+
+after_script:
+- docker images
+
+deploy:
+  script: sudo -E bash .travis/deploy.sh
+  provider: script
+  on:
+    branch: master
