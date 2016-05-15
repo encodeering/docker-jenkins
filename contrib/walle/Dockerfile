@@ -13,7 +13,8 @@ RUN        apt-get update                                                       
  &&        apt-get autoremove -y                                                      \
  &&        rm -rf /var/lib/apt/lists/*
 
-RUN        curl -sSL https://get.docker.com/ | bash                                                         \
+ARG                    SCRIPT
+RUN        curl -sSL ${SCRIPT} | bash && apt-get install -y -q docker-engine                                \
  &&        curl -sSL https://raw.githubusercontent.com/docker/docker/master/hack/dind > /usr/local/bin/dind \
  &&        chmod +x                                                                     /usr/local/bin/dind \
  &&        apt-get autoremove -y                                                                            \
