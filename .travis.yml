@@ -15,8 +15,10 @@ env:
   matrix:
     - ARCH=amd64 VERSION=1.658 SHA=a1e0c298db70195b8ac3202a3758463a1148bbb2
     - ARCH=amd64 VERSION=2.3   SHA=d3097c9c81c7d5074d71a5059d85cf8977c1568e
+    - ARCH=amd64 VERSION=0.1.0 CUSTOM=walle SCRIPT=https://get.docker.com
     - ARCH=armhf VERSION=1.658 SHA=a1e0c298db70195b8ac3202a3758463a1148bbb2
     - ARCH=armhf VERSION=2.3   SHA=d3097c9c81c7d5074d71a5059d85cf8977c1568e
+    - ARCH=armhf VERSION=0.1.0 CUSTOM=walle SCRIPT=https://packagecloud.io/install/repositories/Hypriot/Schatzkiste/script.deb.sh
 
 before_script:
 - sudo -E bash .travis/prepare.sh
