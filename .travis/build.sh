@@ -40,6 +40,8 @@ case "$CUSTOM" in
         docker run --rm "$TAG:$TAGSPECIFIER" -v
         ;;
     * )
+        patch -p1 --no-backup-if-mismatch --directory=$PROJECT < .patch/Dockerfile.patch
+
         mktini
 
         docker build -t "$TAG:$TAGSPECIFIER" \
