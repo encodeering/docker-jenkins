@@ -13,11 +13,17 @@ env:
     - PROJECT="jenkins"
     - REPOSITORY="encodeering"
   matrix:
+    - ARCH=amd64 JAVA=8-jdk         VERSION=1.658                SHA=a1e0c298db70195b8ac3202a3758463a1148bbb2
     - ARCH=amd64 JAVA=8-jdk-openjdk VERSION=1.658 CUSTOM=openjdk SHA=a1e0c298db70195b8ac3202a3758463a1148bbb2
+    - ARCH=amd64 JAVA=8-jdk         VERSION=2.5                  SHA=5e669825a955c9091ac8a858f4f6dcae782f3d87
     - ARCH=amd64 JAVA=8-jdk-openjdk VERSION=2.5   CUSTOM=openjdk SHA=5e669825a955c9091ac8a858f4f6dcae782f3d87
+    - ARCH=amd64 JAVA=8-jdk         VERSION=0.1.0 CUSTOM=walle         SCRIPT=https://get.docker.com
     - ARCH=amd64 JAVA=8-jdk-openjdk VERSION=0.1.0 CUSTOM=walle-openjdk SCRIPT=https://get.docker.com
+    - ARCH=armhf JAVA=8-jdk         VERSION=1.658                SHA=a1e0c298db70195b8ac3202a3758463a1148bbb2
     - ARCH=armhf JAVA=8-jdk-openjdk VERSION=1.658 CUSTOM=openjdk SHA=a1e0c298db70195b8ac3202a3758463a1148bbb2
+    - ARCH=armhf JAVA=8-jdk         VERSION=2.5                  SHA=5e669825a955c9091ac8a858f4f6dcae782f3d87
     - ARCH=armhf JAVA=8-jdk-openjdk VERSION=2.5   CUSTOM=openjdk SHA=5e669825a955c9091ac8a858f4f6dcae782f3d87
+    - ARCH=armhf JAVA=8-jdk         VERSION=0.1.0 CUSTOM=walle         SCRIPT=https://packagecloud.io/install/repositories/Hypriot/Schatzkiste/script.deb.sh
     - ARCH=armhf JAVA=8-jdk-openjdk VERSION=0.1.0 CUSTOM=walle-openjdk SCRIPT=https://packagecloud.io/install/repositories/Hypriot/Schatzkiste/script.deb.sh
 
 before_script:
