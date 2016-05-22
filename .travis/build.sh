@@ -28,8 +28,8 @@ EOF
     docker cp         "tini:/usr/src/tini/tini-static" "$PROJECT/tini"
 }
 
-docker pull   "$REPOSITORY/openjdk-$ARCH:8-jdk"
-docker tag -f "$REPOSITORY/openjdk-$ARCH:8-jdk" "java:8-jdk"
+docker pull   "$REPOSITORY/java-$ARCH:8-jdk-openjdk"
+docker tag -f "$REPOSITORY/java-$ARCH:8-jdk-openjdk" "java:8-jdk"
 
 case "$CUSTOM" in
     walle )
