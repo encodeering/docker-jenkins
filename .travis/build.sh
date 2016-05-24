@@ -36,7 +36,8 @@ docker tag -f "$REPOSITORY/java-$ARCH:$JAVA" "java:8-jdk"
 case "$CUSTOM" in
     walle* )
         docker build -t "$TAG:$TAGSPECIFIER"      \
-                     --build-arg SCRIPT="$SCRIPT" \
+                     --build-arg  SCRIPT="${SCRIPT#*@}"  \
+                     --build-arg PACKAGE="${SCRIPT%%@*}" \
                      "contrib/walle"
 
         docker run --rm "$TAG:$TAGSPECIFIER" -v

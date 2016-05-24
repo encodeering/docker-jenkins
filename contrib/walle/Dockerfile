@@ -13,8 +13,10 @@ RUN        apt-get update                                                       
  &&        apt-get autoremove -y                                                      \
  &&        rm -rf /var/lib/apt/lists/*
 
+ARG        PACKAGE
+
 ARG                    SCRIPT
-RUN        curl -sSL ${SCRIPT} | bash && apt-get install -y -q docker-engine                                \
+RUN        curl -sSL ${SCRIPT} | bash && apt-get install -y -q ${PACKAGE}                                   \
  &&        curl -sSL https://raw.githubusercontent.com/docker/docker/master/hack/dind > /usr/local/bin/dind \
  &&        chmod +x                                                                     /usr/local/bin/dind \
  &&        curl -sSL https://raw.githubusercontent.com/docker-library/docker/master/1.11/dind/dockerd-entrypoint.sh > /usr/local/bin/dind-entrypoint \
