@@ -43,7 +43,7 @@ case "$CUSTOM" in
         docker run --rm "$TAG:$TAGSPECIFIER" -v
         ;;
     * )
-        if [ "$JAVA" = "8-jdk" ]; then sed -i -r '/ENTRYPOINT/ s!/bin/tini!docker-eula-java", "/bin/tini!g' "$PROJECT/Dockerfile"; fi
+        if [[ "$JAVA" =~ .*-oracle$ ]]; then sed -i -r '/ENTRYPOINT/ s!/bin/tini!docker-eula-java", "/bin/tini!g' "$PROJECT/Dockerfile"; fi
 
         patch -p1 --no-backup-if-mismatch --directory=$PROJECT < .patch/Dockerfile.patch
 
@@ -54,7 +54,7 @@ case "$CUSTOM" in
                      --build-arg JENKINS_SHA="$SHA"         \
                      "$PROJECT"
 
-        if [ "$JAVA" = "8-jdk" ]; then
+        if [[ "$JAVA" =~ .*-oracle$ ]]; then
              if docker run --rm -e eula-java=accept "$TAG:$TAGSPECIFIER" java -jar /usr/share/jenkins/jenkins.war --version; then             true; fi
              if docker run --rm -e eula-java=       "$TAG:$TAGSPECIFIER" java -jar /usr/share/jenkins/jenkins.war --version; then false; else true; fi
         else
