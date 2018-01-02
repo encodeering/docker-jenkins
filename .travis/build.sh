@@ -2,10 +2,8 @@
 
 set -ev
 
-SEMANTIC="${VERSION:0:3}"
-
 TAG="$REPOSITORY/$PROJECT-$ARCH"
-TAGSPECIFIER="$SEMANTIC${CUSTOM:+-$CUSTOM}"
+TAGSPECIFIER="$VERSION${CUSTOM:+-$CUSTOM}"
 
 [[ "$JAVA" =~ ^8-jdk.* ]];
 
@@ -30,8 +28,8 @@ case "$CUSTOM" in
         if [[ "$JAVA" =~ .*-oracle$ ]]; then sed -i -r '/ENTRYPOINT/ s!/sbin/tini!docker-eula-java", "/sbin/tini!g' "$PROJECT/Dockerfile"; fi
 
         docker build -t "$TAG:$TAGSPECIFIER" \
-                     --build-arg JENKINS_VERSION="$VERSION" \
-                     --build-arg JENKINS_SHA="$SHA"         \
+                     --build-arg JENKINS_VERSION="$VERSIONPIN" \
+                     --build-arg JENKINS_SHA="$SHA"            \
                      "$PROJECT"
 
         if [[ "$JAVA" =~ .*-oracle$ ]]; then
