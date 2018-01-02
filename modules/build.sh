@@ -5,7 +5,7 @@
 #   env.VERSION
 #   env.VERSIONPIN
 #   env.SHA
-#   env.CUSTOM
+#   env.VARIANT
 #   env.REPOSITORY
 
 set -e
@@ -17,7 +17,7 @@ import com.encodeering.docker.docker
 
 docker-pull "$REPOSITORY/java-$ARCH:$JAVA" "openjdk:8-jdk"
 
-case "$CUSTOM" in
+case "$VARIANT" in
     walle* )
         if [[ "$JAVA" =~ .*-oracle$ ]]; then sed -i -r '/ENTRYPOINT/ s!/usr/bin/supervisord!docker-eula-java", "/usr/bin/supervisord!g' "walle/Dockerfile"; fi
 

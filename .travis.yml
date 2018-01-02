@@ -15,18 +15,18 @@ env:
     - BRANCH="$TRAVIS_BRANCH"
     - COMMIT="32eefe640639cc37b17049351065c2d007a2173c"
   matrix:
-    - ARCH=amd64 JAVA=8-jdk-oracle  VERSION=1.6 VERSIONPIN=1.658 CUSTOM=oracle  SHA=108a496a01361e598cacbcdc8fcf4070e4dab215fb76f759dd75384af7104a3c
-    - ARCH=amd64 JAVA=8-jdk-openjdk VERSION=1.6 VERSIONPIN=1.658 CUSTOM=openjdk SHA=108a496a01361e598cacbcdc8fcf4070e4dab215fb76f759dd75384af7104a3c
-    - ARCH=amd64 JAVA=8-jdk-oracle  VERSION=2.5 VERSIONPIN=2.5   CUSTOM=oracle  SHA=d8de143eef34d0d9d12cc314901eab57f55ddce74c5f6e567920bf4fc0571823
-    - ARCH=amd64 JAVA=8-jdk-openjdk VERSION=2.5 VERSIONPIN=2.5   CUSTOM=openjdk SHA=d8de143eef34d0d9d12cc314901eab57f55ddce74c5f6e567920bf4fc0571823
-    - ARCH=amd64 JAVA=8-jdk-oracle  VERSION=0.1                  CUSTOM=walle-oracle
-    - ARCH=amd64 JAVA=8-jdk-openjdk VERSION=0.1                  CUSTOM=walle-openjdk
-    - ARCH=armhf JAVA=8-jdk-oracle  VERSION=1.6 VERSIONPIN=1.658 CUSTOM=oracle  SHA=108a496a01361e598cacbcdc8fcf4070e4dab215fb76f759dd75384af7104a3c
-    - ARCH=armhf JAVA=8-jdk-openjdk VERSION=1.6 VERSIONPIN=1.658 CUSTOM=openjdk SHA=108a496a01361e598cacbcdc8fcf4070e4dab215fb76f759dd75384af7104a3c
-    - ARCH=armhf JAVA=8-jdk-oracle  VERSION=2.5 VERSIONPIN=2.5   CUSTOM=oracle  SHA=d8de143eef34d0d9d12cc314901eab57f55ddce74c5f6e567920bf4fc0571823
-    - ARCH=armhf JAVA=8-jdk-openjdk VERSION=2.5 VERSIONPIN=2.5   CUSTOM=openjdk SHA=d8de143eef34d0d9d12cc314901eab57f55ddce74c5f6e567920bf4fc0571823
-    - ARCH=armhf JAVA=8-jdk-oracle  VERSION=0.1                  CUSTOM=walle-oracle
-    - ARCH=armhf JAVA=8-jdk-openjdk VERSION=0.1                  CUSTOM=walle-openjdk
+    - ARCH=amd64 JAVA=8-jdk-oracle  VERSION=1.6 VERSIONPIN=1.658 VARIANT=oracle  SHA=108a496a01361e598cacbcdc8fcf4070e4dab215fb76f759dd75384af7104a3c
+    - ARCH=amd64 JAVA=8-jdk-openjdk VERSION=1.6 VERSIONPIN=1.658 VARIANT=openjdk SHA=108a496a01361e598cacbcdc8fcf4070e4dab215fb76f759dd75384af7104a3c
+    - ARCH=amd64 JAVA=8-jdk-oracle  VERSION=2.5 VERSIONPIN=2.5   VARIANT=oracle  SHA=d8de143eef34d0d9d12cc314901eab57f55ddce74c5f6e567920bf4fc0571823
+    - ARCH=amd64 JAVA=8-jdk-openjdk VERSION=2.5 VERSIONPIN=2.5   VARIANT=openjdk SHA=d8de143eef34d0d9d12cc314901eab57f55ddce74c5f6e567920bf4fc0571823
+    - ARCH=amd64 JAVA=8-jdk-oracle  VERSION=0.1                  VARIANT=walle-oracle
+    - ARCH=amd64 JAVA=8-jdk-openjdk VERSION=0.1                  VARIANT=walle-openjdk
+    - ARCH=armhf JAVA=8-jdk-oracle  VERSION=1.6 VERSIONPIN=1.658 VARIANT=oracle  SHA=108a496a01361e598cacbcdc8fcf4070e4dab215fb76f759dd75384af7104a3c
+    - ARCH=armhf JAVA=8-jdk-openjdk VERSION=1.6 VERSIONPIN=1.658 VARIANT=openjdk SHA=108a496a01361e598cacbcdc8fcf4070e4dab215fb76f759dd75384af7104a3c
+    - ARCH=armhf JAVA=8-jdk-oracle  VERSION=2.5 VERSIONPIN=2.5   VARIANT=oracle  SHA=d8de143eef34d0d9d12cc314901eab57f55ddce74c5f6e567920bf4fc0571823
+    - ARCH=armhf JAVA=8-jdk-openjdk VERSION=2.5 VERSIONPIN=2.5   VARIANT=openjdk SHA=d8de143eef34d0d9d12cc314901eab57f55ddce74c5f6e567920bf4fc0571823
+    - ARCH=armhf JAVA=8-jdk-oracle  VERSION=0.1                  VARIANT=walle-oracle
+    - ARCH=armhf JAVA=8-jdk-openjdk VERSION=0.1                  VARIANT=walle-openjdk
 
 install:
 - bash <(curl https://raw.githubusercontent.com/encodeering/docker-ci/master/install.sh) 0.1.4
