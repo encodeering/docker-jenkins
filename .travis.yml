@@ -28,19 +28,20 @@ env:
     - ARCH=armhf JAVA=8-jdk-oracle  VERSION=0.1                  CUSTOM=walle-oracle
     - ARCH=armhf JAVA=8-jdk-openjdk VERSION=0.1                  CUSTOM=walle-openjdk
 
+install:
+- bash <(curl https://raw.githubusercontent.com/encodeering/docker-ci/master/install.sh) 0.1.4
+
 before_script:
-- sudo -E bash .travis/prepare.sh
-- git clone https://github.com/jenkinsci/docker.git "$PROJECT"
--(cd "$PROJECT" && git checkout "$COMMIT")
+- sudo -E bash ./module.sh "." "./setup.sh" "https://github.com/jenkinsci/docker.git" "modules/$PROJECT" "$COMMIT"
 
 script:
-- sudo -E bash .travis/build.sh
+- sudo -E bash ./module.sh "modules" "./build.sh"
 
 after_script:
 - docker images
 
 deploy:
-  script: sudo -E bash .travis/deploy.sh
+  script: sudo -E bash ./module.sh "." "./release.sh"
   provider: script
   skip_cleanup: true
   on:
