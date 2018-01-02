@@ -12,6 +12,7 @@ env:
     - secure: "NtrXn3Z7p/RhYEn0HTs5LSnIr/sx9k9o78u0joxJtqndwehWA5z/lOSaelI66q2uybaa66jDL2lFHJue8IExAuX0zOaF44fZnC8LXIjZsZktwd8bIVJoW+79sjeBI+ZsO4nYj1JfIrIG2Bzbo46kgayYovv0G1RGfnCq8Osu3HzLwg5uVbXjnJLZcevo/+KbA006yDiPfnF5kkE+b5xwgZGFw6Q0LfOfZXImGV+uLnQdQSx59PedmnO/4JdUX2llgTr0vZITXpZYZjl3iYLpHHFW/orp8SxMBSM2fEsyD9/yDN79nhvYsFLVGxflQAuo+F9hyYvu9wDT7HTAL84rJ1qaWRy7UzrIhNazUwBHndeaI94tJ2We+bPS5Nwz+ojqlm32RhNYcakIB6elvnXhmFqEaq/cGpcS29P2WE7sRPkDnzvayXMFSbc2TPMQrzRj8guWjfGDsiOfqanrdcNce84EW10uBoP3h8Hwp18haI2SGPF/V29qrnHGveVz0ciMnAF5sPsHjnvMvZrurDM4ahjcqQR0dAxrEiihL95+rXB8VSosuzqZd6khMNRwJ1ZuXm8yprV6ty1K0NuHmdUKEm0Bj8HxukkRsCUJz8ZX42uKe9gSXt5QE5puhIg+LiwpOM6bMumbybSgf0Xcy2SKK2o66ZGC00+kxNoJXvU/hvE="
     - PROJECT="jenkins"
     - REPOSITORY="encodeering"
+    - BRANCH="$TRAVIS_BRANCH"
   matrix:
     - ARCH=amd64 JAVA=8-jdk-oracle  VERSION=1.658 CUSTOM=oracle  SHA=a1e0c298db70195b8ac3202a3758463a1148bbb2
     - ARCH=amd64 JAVA=8-jdk-openjdk VERSION=1.658 CUSTOM=openjdk SHA=a1e0c298db70195b8ac3202a3758463a1148bbb2
