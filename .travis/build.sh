@@ -16,10 +16,7 @@ case "$CUSTOM" in
     walle* )
         if [[ "$JAVA" =~ .*-oracle$ ]]; then sed -i -r '/ENTRYPOINT/ s!/usr/bin/supervisord!docker-eula-java", "/usr/bin/supervisord!g' "contrib/walle/Dockerfile"; fi
 
-        docker build -t "$TAG:$TAGSPECIFIER"      \
-                     --build-arg  SCRIPT="${SCRIPT#*@}"  \
-                     --build-arg PACKAGE="${SCRIPT%%@*}" \
-                     "contrib/walle"
+        docker build -t "$TAG:$TAGSPECIFIER" "contrib/walle"
 
         if [[ "$JAVA" =~ .*-oracle$ ]]; then
              if docker run --rm -e eula-java=accept "$TAG:$TAGSPECIFIER" -v; then             true; fi
