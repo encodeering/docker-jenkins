@@ -13,6 +13,7 @@ env:
     - PROJECT="jenkins"
     - REPOSITORY="encodeering"
     - BRANCH="$TRAVIS_BRANCH"
+    - COMMIT="32eefe640639cc37b17049351065c2d007a2173c"
   matrix:
     - ARCH=amd64 JAVA=8-jdk-oracle  VERSION=1.658 CUSTOM=oracle  SHA=108a496a01361e598cacbcdc8fcf4070e4dab215fb76f759dd75384af7104a3c
     - ARCH=amd64 JAVA=8-jdk-openjdk VERSION=1.658 CUSTOM=openjdk SHA=108a496a01361e598cacbcdc8fcf4070e4dab215fb76f759dd75384af7104a3c
@@ -29,7 +30,8 @@ env:
 
 before_script:
 - sudo -E bash .travis/prepare.sh
-- git clone --depth 1 https://github.com/jenkinsci/docker.git "$PROJECT"
+- git clone https://github.com/jenkinsci/docker.git "$PROJECT"
+-(cd "$PROJECT" && git checkout "$COMMIT")
 
 script:
 - sudo -E bash .travis/build.sh
