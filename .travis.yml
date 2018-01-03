@@ -12,32 +12,37 @@ env:
     - secure: "NtrXn3Z7p/RhYEn0HTs5LSnIr/sx9k9o78u0joxJtqndwehWA5z/lOSaelI66q2uybaa66jDL2lFHJue8IExAuX0zOaF44fZnC8LXIjZsZktwd8bIVJoW+79sjeBI+ZsO4nYj1JfIrIG2Bzbo46kgayYovv0G1RGfnCq8Osu3HzLwg5uVbXjnJLZcevo/+KbA006yDiPfnF5kkE+b5xwgZGFw6Q0LfOfZXImGV+uLnQdQSx59PedmnO/4JdUX2llgTr0vZITXpZYZjl3iYLpHHFW/orp8SxMBSM2fEsyD9/yDN79nhvYsFLVGxflQAuo+F9hyYvu9wDT7HTAL84rJ1qaWRy7UzrIhNazUwBHndeaI94tJ2We+bPS5Nwz+ojqlm32RhNYcakIB6elvnXhmFqEaq/cGpcS29P2WE7sRPkDnzvayXMFSbc2TPMQrzRj8guWjfGDsiOfqanrdcNce84EW10uBoP3h8Hwp18haI2SGPF/V29qrnHGveVz0ciMnAF5sPsHjnvMvZrurDM4ahjcqQR0dAxrEiihL95+rXB8VSosuzqZd6khMNRwJ1ZuXm8yprV6ty1K0NuHmdUKEm0Bj8HxukkRsCUJz8ZX42uKe9gSXt5QE5puhIg+LiwpOM6bMumbybSgf0Xcy2SKK2o66ZGC00+kxNoJXvU/hvE="
     - PROJECT="jenkins"
     - REPOSITORY="encodeering"
+    - BRANCH="$TRAVIS_BRANCH"
+    - COMMIT="32eefe640639cc37b17049351065c2d007a2173c"
   matrix:
-    - ARCH=amd64 JAVA=8-jdk-oracle  VERSION=1.658 CUSTOM=oracle  SHA=a1e0c298db70195b8ac3202a3758463a1148bbb2
-    - ARCH=amd64 JAVA=8-jdk-openjdk VERSION=1.658 CUSTOM=openjdk SHA=a1e0c298db70195b8ac3202a3758463a1148bbb2
-    - ARCH=amd64 JAVA=8-jdk-oracle  VERSION=2.5   CUSTOM=oracle  SHA=5e669825a955c9091ac8a858f4f6dcae782f3d87
-    - ARCH=amd64 JAVA=8-jdk-openjdk VERSION=2.5   CUSTOM=openjdk SHA=5e669825a955c9091ac8a858f4f6dcae782f3d87
-    - ARCH=amd64 JAVA=8-jdk-oracle  VERSION=0.1.0 CUSTOM=walle-oracle  SCRIPT=docker-engine@https://get.docker.com
-    - ARCH=amd64 JAVA=8-jdk-openjdk VERSION=0.1.0 CUSTOM=walle-openjdk SCRIPT=docker-engine@https://get.docker.com
-    - ARCH=armhf JAVA=8-jdk-oracle  VERSION=1.658 CUSTOM=oracle  SHA=a1e0c298db70195b8ac3202a3758463a1148bbb2
-    - ARCH=armhf JAVA=8-jdk-openjdk VERSION=1.658 CUSTOM=openjdk SHA=a1e0c298db70195b8ac3202a3758463a1148bbb2
-    - ARCH=armhf JAVA=8-jdk-oracle  VERSION=2.5   CUSTOM=oracle  SHA=5e669825a955c9091ac8a858f4f6dcae782f3d87
-    - ARCH=armhf JAVA=8-jdk-openjdk VERSION=2.5   CUSTOM=openjdk SHA=5e669825a955c9091ac8a858f4f6dcae782f3d87
-    - ARCH=armhf JAVA=8-jdk-oracle  VERSION=0.1.0 CUSTOM=walle-oracle  SCRIPT=docker-hypriot@https://packagecloud.io/install/repositories/Hypriot/Schatzkiste/script.deb.sh
-    - ARCH=armhf JAVA=8-jdk-openjdk VERSION=0.1.0 CUSTOM=walle-openjdk SCRIPT=docker-hypriot@https://packagecloud.io/install/repositories/Hypriot/Schatzkiste/script.deb.sh
+    - ARCH=amd64 JAVA=8-jdk-oracle  VERSION=1.6 VERSIONPIN=1.658 VARIANT=oracle  SHA=108a496a01361e598cacbcdc8fcf4070e4dab215fb76f759dd75384af7104a3c
+    - ARCH=amd64 JAVA=8-jdk-openjdk VERSION=1.6 VERSIONPIN=1.658 VARIANT=openjdk SHA=108a496a01361e598cacbcdc8fcf4070e4dab215fb76f759dd75384af7104a3c
+    - ARCH=amd64 JAVA=8-jdk-oracle  VERSION=2.5 VERSIONPIN=2.5   VARIANT=oracle  SHA=d8de143eef34d0d9d12cc314901eab57f55ddce74c5f6e567920bf4fc0571823
+    - ARCH=amd64 JAVA=8-jdk-openjdk VERSION=2.5 VERSIONPIN=2.5   VARIANT=openjdk SHA=d8de143eef34d0d9d12cc314901eab57f55ddce74c5f6e567920bf4fc0571823
+    - ARCH=amd64 JAVA=8-jdk-oracle  VERSION=0.1                  VARIANT=walle-oracle
+    - ARCH=amd64 JAVA=8-jdk-openjdk VERSION=0.1                  VARIANT=walle-openjdk
+    - ARCH=armhf JAVA=8-jdk-oracle  VERSION=1.6 VERSIONPIN=1.658 VARIANT=oracle  SHA=108a496a01361e598cacbcdc8fcf4070e4dab215fb76f759dd75384af7104a3c
+    - ARCH=armhf JAVA=8-jdk-openjdk VERSION=1.6 VERSIONPIN=1.658 VARIANT=openjdk SHA=108a496a01361e598cacbcdc8fcf4070e4dab215fb76f759dd75384af7104a3c
+    - ARCH=armhf JAVA=8-jdk-oracle  VERSION=2.5 VERSIONPIN=2.5   VARIANT=oracle  SHA=d8de143eef34d0d9d12cc314901eab57f55ddce74c5f6e567920bf4fc0571823
+    - ARCH=armhf JAVA=8-jdk-openjdk VERSION=2.5 VERSIONPIN=2.5   VARIANT=openjdk SHA=d8de143eef34d0d9d12cc314901eab57f55ddce74c5f6e567920bf4fc0571823
+    - ARCH=armhf JAVA=8-jdk-oracle  VERSION=0.1                  VARIANT=walle-oracle
+    - ARCH=armhf JAVA=8-jdk-openjdk VERSION=0.1                  VARIANT=walle-openjdk
+
+install:
+- bash <(curl https://raw.githubusercontent.com/encodeering/docker-ci/master/install.sh) 0.1.4
 
 before_script:
-- sudo -E bash .travis/prepare.sh
-- git clone --depth 1 https://github.com/jenkinsci/docker.git "$PROJECT"
+- sudo -E bash ./module.sh "." "./setup.sh" "https://github.com/jenkinsci/docker.git" "modules/$PROJECT" "$COMMIT"
 
 script:
-- sudo -E bash .travis/build.sh
+- sudo -E bash ./module.sh "modules" "./build.sh"
 
 after_script:
 - docker images
 
 deploy:
-  script: sudo -E bash .travis/deploy.sh
+  script: sudo -E bash ./module.sh "." "./release.sh"
   provider: script
+  skip_cleanup: true
   on:
-    branch: master
+    all_branches: true
