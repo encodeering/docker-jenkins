@@ -29,7 +29,7 @@ env:
     - ARCH=armhf JAVA=8-jdk-openjdk VERSION=0.1                  VARIANT=walle-openjdk
 
 install:
-- bash <(curl https://raw.githubusercontent.com/encodeering/docker-ci/master/install.sh) 0.1.4
+- bash <(curl https://raw.githubusercontent.com/encodeering/docker-ci/master/install.sh) 0.1.5
 
 before_script:
 - sudo -E bash ./module.sh "." "./setup.sh" "https://github.com/jenkinsci/docker.git" "modules/$PROJECT" "$COMMIT"
