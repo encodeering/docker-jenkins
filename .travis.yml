@@ -15,18 +15,14 @@ env:
     - BRANCH="$TRAVIS_BRANCH"
     - COMMIT="32eefe640639cc37b17049351065c2d007a2173c"
   matrix:
-    - BASE=debian ARCH=amd64 JAVA=8-jdk-debian-oracle  VERSION=1.6 VERSIONPIN=1.658 VARIANT=oracle  SHA=108a496a01361e598cacbcdc8fcf4070e4dab215fb76f759dd75384af7104a3c
-    - BASE=debian ARCH=amd64 JAVA=8-jdk-debian-openjdk VERSION=1.6 VERSIONPIN=1.658 VARIANT=openjdk SHA=108a496a01361e598cacbcdc8fcf4070e4dab215fb76f759dd75384af7104a3c
-    - BASE=debian ARCH=amd64 JAVA=8-jdk-debian-oracle  VERSION=2.5 VERSIONPIN=2.5   VARIANT=oracle  SHA=d8de143eef34d0d9d12cc314901eab57f55ddce74c5f6e567920bf4fc0571823
-    - BASE=debian ARCH=amd64 JAVA=8-jdk-debian-openjdk VERSION=2.5 VERSIONPIN=2.5   VARIANT=openjdk SHA=d8de143eef34d0d9d12cc314901eab57f55ddce74c5f6e567920bf4fc0571823
-    - BASE=debian ARCH=amd64 JAVA=8-jdk-debian-oracle  VERSION=0.1                  VARIANT=walle-oracle
-    - BASE=debian ARCH=amd64 JAVA=8-jdk-debian-openjdk VERSION=0.1                  VARIANT=walle-openjdk
-    - BASE=debian ARCH=armhf JAVA=8-jdk-debian-oracle  VERSION=1.6 VERSIONPIN=1.658 VARIANT=oracle  SHA=108a496a01361e598cacbcdc8fcf4070e4dab215fb76f759dd75384af7104a3c
-    - BASE=debian ARCH=armhf JAVA=8-jdk-debian-openjdk VERSION=1.6 VERSIONPIN=1.658 VARIANT=openjdk SHA=108a496a01361e598cacbcdc8fcf4070e4dab215fb76f759dd75384af7104a3c
-    - BASE=debian ARCH=armhf JAVA=8-jdk-debian-oracle  VERSION=2.5 VERSIONPIN=2.5   VARIANT=oracle  SHA=d8de143eef34d0d9d12cc314901eab57f55ddce74c5f6e567920bf4fc0571823
-    - BASE=debian ARCH=armhf JAVA=8-jdk-debian-openjdk VERSION=2.5 VERSIONPIN=2.5   VARIANT=openjdk SHA=d8de143eef34d0d9d12cc314901eab57f55ddce74c5f6e567920bf4fc0571823
-    - BASE=debian ARCH=armhf JAVA=8-jdk-debian-oracle  VERSION=0.1                  VARIANT=walle-oracle
-    - BASE=debian ARCH=armhf JAVA=8-jdk-debian-openjdk VERSION=0.1                  VARIANT=walle-openjdk
+    - BASE=debian ARCH=amd64 JAVA=8-jdk-debian-oracle  VERSION=2.89 VERSIONPIN=2.89.2 VARIANT=oracle  SHA=014f669f32bc6e925e926e260503670b32662f006799b133a031a70a794c8a14
+    - BASE=debian ARCH=amd64 JAVA=8-jdk-debian-openjdk VERSION=2.89 VERSIONPIN=2.89.2 VARIANT=openjdk SHA=014f669f32bc6e925e926e260503670b32662f006799b133a031a70a794c8a14
+    - BASE=debian ARCH=amd64 JAVA=8-jdk-debian-oracle  VERSION=0.1                    VARIANT=walle-oracle
+    - BASE=debian ARCH=amd64 JAVA=8-jdk-debian-openjdk VERSION=0.1                    VARIANT=walle-openjdk
+    - BASE=debian ARCH=armhf JAVA=8-jdk-debian-oracle  VERSION=2.89 VERSIONPIN=2.89.2 VARIANT=oracle  SHA=014f669f32bc6e925e926e260503670b32662f006799b133a031a70a794c8a14
+    - BASE=debian ARCH=armhf JAVA=8-jdk-debian-openjdk VERSION=2.89 VERSIONPIN=2.89.2 VARIANT=openjdk SHA=014f669f32bc6e925e926e260503670b32662f006799b133a031a70a794c8a14
+    - BASE=debian ARCH=armhf JAVA=8-jdk-debian-oracle  VERSION=0.1                    VARIANT=walle-oracle
+    - BASE=debian ARCH=armhf JAVA=8-jdk-debian-openjdk VERSION=0.1                    VARIANT=walle-openjdk
 
 install:
 - bash <(curl https://raw.githubusercontent.com/encodeering/docker-ci/master/install.sh) 0.1.5
