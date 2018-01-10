@@ -2,8 +2,8 @@
 
 set -e
 
-import com.encodeering.docker.config
-import com.encodeering.docker.docker
+import com.encodeering.ci.config
+import com.encodeering.ci.docker
 
 [[ "$JAVA" =~ ^8-jdk.* ]];
 
@@ -13,14 +13,13 @@ case "$VARIANT" in
     walle* )
         if [[ "$JAVA" =~ .*-oracle$ ]]; then sed -i -r '/ENTRYPOINT/ s!/usr/bin/supervisord!docker-eula-java", "/usr/bin/supervisord!g' "walle/Dockerfile"; fi
 
-        docker build -t "$DOCKER_IMAGE" "walle"
+        docker-build "walle"
 
         ;;
     * )
         if [[ "$JAVA" =~ .*-oracle$ ]]; then sed -i -r '/ENTRYPOINT/ s!/sbin/tini!docker-eula-java", "/sbin/tini!g' "$PROJECT/Dockerfile"; fi
 
-        docker build -t "$DOCKER_IMAGE" \
-                     --build-arg JENKINS_VERSION="$VERSIONPIN" \
+        docker-build --build-arg JENKINS_VERSION="$VERSIONPIN" \
                      --build-arg JENKINS_SHA="$SHA"         \
                      "$PROJECT"
 
