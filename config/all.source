@@ -1,3 +1,3 @@
 SCM_SOURCE=https://github.com/jenkinsci/docker.git
 SCM_TARGET=modules/$PROJECT
-SCM_COMMIT=8ceeaf98ae88da67e67692b391b86c9dbd8795d7
+SCM_COMMIT=8479bfe3905d858eb3d9041108cb5454eca487f3
