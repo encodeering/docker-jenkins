@@ -5,8 +5,6 @@ set -e
 import com.encodeering.ci.config
 import com.encodeering.ci.docker
 
-[[ "$JAVA" =~ ^8-jdk-alpine-openjdk$ ]];
-
 docker-pull "$REPOSITORY/java-$ARCH:$JAVA" "openjdk:8-jdk-alpine"
 
 docker-build -f "$PROJECT/Dockerfile-alpine" \

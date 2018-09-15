@@ -13,15 +13,11 @@ env:
     - PROJECT="jenkins"
     - REPOSITORY="encodeering"
   matrix:
-    - BASE=debian ARCH=amd64 JAVA=8-jdk-debian-oracle  VERSION=2.89 VERSIONPIN=2.89.2 VARIANT=oracle  SHA=014f669f32bc6e925e926e260503670b32662f006799b133a031a70a794c8a14
     - BASE=debian ARCH=amd64 JAVA=8-jdk-debian-openjdk VERSION=2.89 VERSIONPIN=2.89.2 VARIANT=openjdk SHA=014f669f32bc6e925e926e260503670b32662f006799b133a031a70a794c8a14
     - BASE=alpine ARCH=amd64 JAVA=8-jdk-alpine-openjdk VERSION=2.89 VERSIONPIN=2.89.2 VARIANT=openjdk SHA=014f669f32bc6e925e926e260503670b32662f006799b133a031a70a794c8a14
-    - BASE=debian ARCH=amd64 JAVA=8-jdk-debian-oracle  VERSION=0.1                    VARIANT=walle-oracle
-    - BASE=debian ARCH=amd64 JAVA=8-jdk-debian-openjdk VERSION=0.1                    VARIANT=walle-openjdk
-    - BASE=debian ARCH=armhf JAVA=8-jdk-debian-oracle  VERSION=2.89 VERSIONPIN=2.89.2 VARIANT=oracle  SHA=014f669f32bc6e925e926e260503670b32662f006799b133a031a70a794c8a14
+    - BASE=debian ARCH=amd64 JAVA=8-jdk-debian-openjdk VERSION=0.1                    VARIANT=walle
     - BASE=debian ARCH=armhf JAVA=8-jdk-debian-openjdk VERSION=2.89 VERSIONPIN=2.89.2 VARIANT=openjdk SHA=014f669f32bc6e925e926e260503670b32662f006799b133a031a70a794c8a14
-    - BASE=debian ARCH=armhf JAVA=8-jdk-debian-oracle  VERSION=0.1                    VARIANT=walle-oracle
-    - BASE=debian ARCH=armhf JAVA=8-jdk-debian-openjdk VERSION=0.1                    VARIANT=walle-openjdk
+    - BASE=debian ARCH=armhf JAVA=8-jdk-debian-openjdk VERSION=0.1                    VARIANT=walle
 
 install:
 - bash <(curl https://raw.githubusercontent.com/encodeering/docker-ci/master/install.sh) 0.1.8
