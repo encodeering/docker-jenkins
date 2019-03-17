@@ -11,3 +11,5 @@ docker-build -f "$PROJECT/Dockerfile-alpine" \
              --build-arg JENKINS_VERSION="$VERSIONPIN" \
              --build-arg JENKINS_SHA="$SHA"         \
              "$PROJECT"
+
+docker-verify java -jar /usr/share/jenkins/jenkins.war --version | dup | matches "^${VERSIONPIN}"

@@ -19,7 +19,7 @@ case "$VARIANT" in
                      --build-arg JENKINS_SHA="$SHA"         \
                      "$PROJECT"
 
-        docker-verify java -jar /usr/share/jenkins/jenkins.war --version
+        docker-verify java -jar /usr/share/jenkins/jenkins.war --version | dup | matches "^${VERSIONPIN}"
 
         ;;
 esac
