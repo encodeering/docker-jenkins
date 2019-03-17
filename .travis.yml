@@ -20,7 +20,7 @@ env:
     - BASE=debian ARCH=armhf JAVA=8-jdk-debian-openjdk VERSION=0.1                    VARIANT=walle
 
 install:
-- bash <(curl https://raw.githubusercontent.com/encodeering/docker-ci/master/install.sh) 0.1.8
+- bash <(curl https://raw.githubusercontent.com/encodeering/docker-ci/master/install.sh) 0.1.11
 
 before_script:
 - sudo -E bash ./module.sh "." "./setup.sh"
