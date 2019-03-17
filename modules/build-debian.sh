@@ -5,7 +5,7 @@ set -e
 import com.encodeering.ci.config
 import com.encodeering.ci.docker
 
-docker-pull "$REPOSITORY/java-$ARCH:$JAVA" "openjdk:8-jdk"
+docker-pull "$REPOSITORY/java-$ARCH:$JAVA" "openjdk:8-jdk" "openjdk:8-jdk-stretch"
 
 case "$VARIANT" in
     walle )
